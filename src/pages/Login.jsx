@@ -5,8 +5,9 @@
 export default function Login() {
  return (
 <div className='login'>
-  <h2>Login</h2>
-<form>
+ 
+<form className="login-form">
+   <h2>Login</h2>
   <input 
   type='email'
   name='email'
@@ -19,14 +20,14 @@ export default function Login() {
   name='password'
   placeholder='Enter Password'
  
-  required
+  required  
 />
 
 
 
 <button type='Submit'>Login</button>
 
-</form>
+
   
 <p style ={{color:'red'}}>
   Fill in all the fields to login
@@ -35,6 +36,6 @@ export default function Login() {
 <p>
   Dont have an account? <a href='/register'>Sign Up</a>
 </p>
-
+</form>
 </div>
  );}
