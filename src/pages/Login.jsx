@@ -38,7 +38,7 @@ if (!formData.email || !formData.password) {
 }
 try {
   const res =await axios.post("http://localhost:5000/api/auth/login", formData);
-console.log(res.data); // Sends emal and password to backend and get response from backend
+console.log(res.data); // Sends email and password to backend and get response from backend
 
 
 localStorage.setItem("token",res.data.token); // Saves login token in browser 
@@ -54,7 +54,8 @@ navigate("/dashboard");
  return (
 <div className='login-container'>
  
-<form className="login-form" onSubmit={handleSubmit}>
+ <div className='login-form'>
+<form  onSubmit={handleSubmit}>
    <h2>Login</h2>
   <input 
   type='email'
@@ -84,6 +85,7 @@ navigate("/dashboard");
   Dont have an account? <a href='/register'>Sign Up</a>
 </p>
 </form>
+</div>
 </div>
  );
 }
