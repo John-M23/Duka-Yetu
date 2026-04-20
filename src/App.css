@@ -1,7 +1,11 @@
 /* Login form styles */
 
 
-
+body{
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+ 
+}
 
 
 
@@ -13,6 +17,7 @@
   align-items: center;
   justify-content: center;
   background: #f5f6fa;
+  width:100%;
 }
 
 .login-form {
@@ -173,6 +178,7 @@ header{
   justify-content:space-between;
   align-items:center;
   top:0;
+  width: 100%;
 }
 
 nav h1{
