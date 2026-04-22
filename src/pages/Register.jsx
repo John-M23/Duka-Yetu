@@ -32,11 +32,28 @@ export default function Register() {
             name='businessName'
             placeholder='Business Name'
             />
-            <input
-            type='text'
-            name='businessType'
-            placeholder='Business Type'
-            />
+
+           <input
+        type="location"
+        name="business location "
+        placeholder="Business-Location"
+           />
+
+        
+
+
+           <select>
+            <option value="">Select Business Type </option>
+            
+            <option value="Hardware">Hardware</option>
+            <option value="">Kiosk</option>
+            <option value="">liquor Store/Wines&Spirit</option>
+            <option value="">Shop</option>
+            <option value="">Supermarket</option>
+            <option value="">Whole-sale Shop</option>
+            <option value="">Others</option>
+           </select>
+        
             <button type='submit'>Register</button>
             </form>
         </div>
