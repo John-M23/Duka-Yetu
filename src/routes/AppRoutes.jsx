@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Pos from "../pages/Pos"
 import Register from "../pages/Register";
+import Price from "../components/Price";
 
 
 export default function AppRoutes()
@@ -16,7 +17,8 @@ export default function AppRoutes()
             <Route path ="/dashboard" element={<Dashboard/>} />
              <Route path ="/pos" element={<Pos/>} />
              <Route path ="/register" element={<Register/>} />
-             
+             <Route path ="/price" element={<Price/>} />
+              
         </Routes>
         
         

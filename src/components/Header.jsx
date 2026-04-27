@@ -5,11 +5,11 @@ export default function Header(){
         <div className="logo">Duka-Yetu</div>
         <nav>
           <Link to="/features">Features</Link>
-          <Link to="/pricing">Pricing</Link>
+          <Link to="/price">Pricing</Link>
           <Link to="/login">Login</Link>
           
           <Link to="/register" className="cta-nav">Get Started</Link>
-        <link to="/help" ></link>
+          <Link to="/help">Help</Link>
         </nav>
       </header> 
     );
