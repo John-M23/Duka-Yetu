@@ -7,9 +7,9 @@ export default function Header(){
           <Link to="/features">Features</Link>
           <Link to="/price">Pricing</Link>
           <Link to="/login">Login</Link>
-          
-          <Link to="/register" className="cta-nav">Get Started</Link>
           <Link to="/help">Help</Link>
+          <button onClick={() => (window.location.href = "/register")}>Get Started</button>
+          
         </nav>
       </header> 
     );

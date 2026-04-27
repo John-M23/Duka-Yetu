@@ -6,12 +6,15 @@ export default function Price(){
     return(<>
         
 <Header />
-        <div className="price">
+        <div className="product-card">
         <h2>Affordable Pricing Plans</h2>
         <p>Choose a plan that fits your needs and budget. Our pricing is transparent and competitive, ensuring you get the best value for your money.</p>
-        <div className="pricing-table">
-            <div className="Beginner">
-                <h3>Beginner</h3>
+        
+        <div className="pricing-container">
+            {/* Beginner Plan */}
+            <div className="plan-card">
+                <div className="plan-badge-beginner">BASIC</div>
+               
                 <p>$9.99/month</p>
                 <ul>
                     <li>Basic features</li>
@@ -19,8 +22,11 @@ export default function Price(){
                     <li>Email support</li>
                 </ul>
             </div>
-            <div className="Advanced">
-                <h3>Advanced</h3>
+
+            {/* Advanced Plan */}
+            <div className="plan-card">
+                <div className="plan-badge-advanced">STANDARD</div>
+                
                 <p>$19.99/month</p>
                 <ul>
                     <li>Advanced features</li>
@@ -29,6 +35,29 @@ export default function Price(){
                 </ul>
             </div>
 
+            {/* Professional Plan */}
+            <div className="plan-card">
+                <div className="plan-badge-professional">ADVANCED</div>
+           
+                <p>$29.99/month</p>
+                <ul>
+                    <li>All features</li>
+                    <li>Unlimited users</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+
+
+              <div className="plan-card">
+                <div className="plan-badge-professional">ADVANCED</div>
+           
+                <p>$29.99/Annual</p>
+                <ul>
+                    <li>All features</li>
+                    <li>Unlimited users</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
         </div>
         </div>
         </>
