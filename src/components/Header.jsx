@@ -15,18 +15,38 @@ export default function Header(){
             document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
         }
     };
-    return(<header className="header">
-        <div className="logo">Duka-Yetu</div>
-        <nav>
-          <Link to="/">Home</Link>
-          <a href="#features" onClick={handleFeaturesClick}>Features</a>
-          <Link to="/price">Pricing</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/help">Help</Link>
-          <button onClick={() => navigate("/register")}>Get Started</button>
-          
+    return(
+        <header className="header" >
+        <div className="logo">
+            <Link to="/">Duka Yetu</Link>
+        </div>
+
+        <nav className="nav-links">
+            <Link to="/">Home</Link>
+            <a href="#features" onClick={handleFeaturesClick}>Features</a>
+           <Link to ="/price">Pricing</Link>
+            <Link to ="/help">Help</Link>
+
         </nav>
-      </header> 
+        <div className="nav-actions">
+        <Link to ="/login" className="btn-outline">Sign In</Link>
+        <Link to ="/register" className="btn-primary">Get Started</Link>
+        </div>
+      
+
+
+
+
+
+
+
+        </header>
+
+
+
+
+
+
     );
 }
 

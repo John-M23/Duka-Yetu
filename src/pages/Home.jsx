@@ -1,8 +1,9 @@
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import heroImage from '../assets/Login-template1.png';
-
+import  { useNavigate } from 'react-router-dom';
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <Header />
@@ -68,9 +69,8 @@ export default function Home() {
         {/* CTA */}
         <section className="cta">
           <h2>Start your shop today</h2>
-          <button  onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>Get Started</button>
+          <button onClick={() => navigate("/register")}>Get Started</button>
         </section>
-
       </main>
     </>
   );
