@@ -20,7 +20,7 @@ export default function Home() {
                 Start Free
               </Link>
 
-              <button className="secondary">Learn More</button>
+              <button className="secondary" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>Learn More</button>
             </div>
           </div>
 
@@ -35,7 +35,8 @@ export default function Home() {
         </section>
 
         {/* FEATURES */}
-        <section className="feature">
+        <section id="features">
+        <section className="feature" >
           <div className="text">
             <h2>Sell Anywhere</h2>
             <p>Use your phone, tablet or computer.</p>
@@ -63,13 +64,11 @@ export default function Home() {
           <div className="card">Multiple Payments</div>
           <div className="card">Employee Management</div>
         </section>
-
+        </section>
         {/* CTA */}
         <section className="cta">
           <h2>Start your shop today</h2>
-          <Link to="/register" className="cta-btn">
-            Get Started
-          </Link>
+          <button  onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>Get Started</button>
         </section>
 
       </main>
