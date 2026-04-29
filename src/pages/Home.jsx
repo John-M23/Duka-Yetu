@@ -20,7 +20,6 @@ export default function Home() {
               <Link to="/register" className="primary">
                 Start Free
               </Link>
-
               <button className="secondary" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>Learn More</button>
             </div>
           </div>
