@@ -1,4 +1,3 @@
-import "./Header.css"
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header(){
@@ -16,30 +15,18 @@ export default function Header(){
         }
     };
     return(
-        <header className="header" >
-        <div className="logo">
-            <Link to="/">Duka Yetu</Link>
-        </div>
-
-        <nav className="nav-links">
-            <Link to="/">Home</Link>
-            <a href="#features" onClick={handleFeaturesClick}>Features</a>
-           <Link to ="/price">Pricing</Link>
-            <Link to ="/help">Help</Link>
-
+        <header className="bg-white shadow-md px-6 py-4 flex items-center justify-between" >
+       <div className="text-xl font-bold cursor-pointer">Duka Yetu</div>
+        <nav className="flex gap-6 items-center ">
+            <Link to="/" className="text-black hover:text-green-800  hover:underline">Home</Link>
+            <a href="#features" onClick={handleFeaturesClick} className="text-black hover:text-green-800 hover:underline">Features</a>
+            <Link to="/price" className="text-black hover:text-green-800 hover:underline">Pricing</Link>
+            <Link to="/help" className="text-black hover:text-green-800 hover:underline">Help</Link>
         </nav>
         <div className="nav-actions">
-        <Link to ="/login" className="btn-outline">Sign In</Link>
-        <Link to ="/register" className="btn-primary">Get Started</Link>
+        <Link to ="/login" className="bg-white text-black hover:bg-green-200 py-2 px-4 rounded border border-green-800">Sign In</Link>
+        <Link to ="/register" className="bg-green-500 text-white hover:bg-green-700 py-2 px-4 rounded">Get Started</Link>
         </div>
-      
-
-
-
-
-
-
-
         </header>
 
 
