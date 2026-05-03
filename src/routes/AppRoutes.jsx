@@ -6,8 +6,8 @@ import Pos from "../pages/Pos"
 import Register from "../pages/Register";
 import Price from "../components/Price";
 import Inventory from "../pages/Inventory";
-// import Reports from "../pages/Reports";
-// import Staff from "../pages/Staff";
+import Report from "../pages/Report";
+import Staff from "../pages/Staff";
 
 export default function AppRoutes()
 {
@@ -21,8 +21,8 @@ export default function AppRoutes()
              <Route path ="/register" element={<Register/>} />
              <Route path ="/price" element={<Price/>} />
               <Route path ="/Inventory"element={<Inventory/>} />
-               {/* <Route path ="/reports" element={<Reports/>} /> */}
-                {/* <Route path ="/staff" element={<Staff/>} /> */}
+               <Route path ="/reports" element={<Report/>} />
+                <Route path ="/staff" element={<Staff/>} />
         </Routes>
         
         
