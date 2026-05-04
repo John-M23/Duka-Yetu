@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Price.css"
+import "./price.css"
 import Header from "./Header";
 
 export default function Price(){
