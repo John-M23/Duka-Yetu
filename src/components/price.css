@@ -114,5 +114,6 @@
     .plan-badge-beginner, .plan-badge-advanced, .plan-badge-professional, .plan-badge-enterprise    {
         font-size: 0.9rem;
         padding: 4px 18px;
+        
     }
 }

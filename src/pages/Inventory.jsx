@@ -9,7 +9,11 @@ export default function Inventory() {
     <div className="p-4">
 
       <h2 className="text-xl font-semibold mb-4">Inventory</h2>
-
+    <div className="mb-4">
+        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          Add New Product
+        </button>
+      </div>
       <input
         className="w-full mb-4 px-3 py-2 border rounded"
         type="text"

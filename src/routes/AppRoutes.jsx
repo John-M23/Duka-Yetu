@@ -8,7 +8,8 @@ import Price from "../components/Price";
 import Inventory from "../pages/Inventory";
 import Report from "../pages/Report";
 import Staff from "../pages/Staff";
-
+import Customer from "../pages/Customer.jsx";
+import Branch from "../pages/Branch";
 export default function AppRoutes()
 {
     return(
@@ -23,6 +24,9 @@ export default function AppRoutes()
               <Route path ="/Inventory"element={<Inventory/>} />
                <Route path ="/reports" element={<Report/>} />
                 <Route path ="/staff" element={<Staff/>} />
+                <Route path ="/Customer" element={<Customer/>} />
+                <Route path ="/Branch" element={<Branch/>} />
+
         </Routes>
         
         

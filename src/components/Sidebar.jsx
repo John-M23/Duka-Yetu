@@ -19,6 +19,10 @@ export default function Sidebar() {
         <Link to="/inventory" style={{ color: "white" }}>Inventory</Link>
         <Link to="/reports" style={{ color: "white" }}>Reports</Link>
         <Link to="/staff" style={{ color: "white" }}>Staff</Link>
+        <Link to="/Customer" style={{ color: "white" }}>Customer</Link>
+         <Link to="/Branch" style={{ color: "white" }}>Branches</Link>
+
+
       </nav>
     </div>
   );
