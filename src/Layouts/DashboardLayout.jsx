@@ -2,12 +2,14 @@ import Sidebar from "../components/Sidebar";
 
 export default function DashboardLayout({ children }) {
   return (
-    <div style={{ display: "flex" }}>
+    <div className="flex min-h-screen bg-gray-100 text-gray-800">
+
       <Sidebar />
 
-      <div style={{ padding: "20px", flex: 1 }}>
+      <main className="flex-1 p-3 md:p-6 overflow-x-hidden">
         {children}
-      </div>
+      </main>
+
     </div>
   );
 }

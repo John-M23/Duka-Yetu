@@ -6,8 +6,9 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 export default function Branch() {
     return(
 <div>
+    <DashboardLayout>
  <h1>Here are your Branches </h1>
-
+</ DashboardLayout>
 </div>
 
     );

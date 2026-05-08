@@ -2,28 +2,20 @@ import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
-    <div
-      style={{
-        width: "220px",
-        height: "100vh",
-        background: "#1f2937",
-        color: "white",
-        padding: "20px"
-      }}
-    >
-      <h2>Duka Yetu</h2>
+    <aside className="hidden md:flex md:w-56 lg:w-64 min-h-screen bg-gray-800 text-white p-5 flex-col">
+      
+      <h2 className="text-2xl font-bold">Duka Yetu</h2>
 
-      <nav style={{ marginTop: "30px", display: "flex", flexDirection: "column", gap: "15px" }}>
-        <Link to="/dashboard" style={{ color: "white" }}>Dashboard</Link>
-        <Link to="/pos" style={{ color: "white" }}>POS</Link>
-        <Link to="/inventory" style={{ color: "white" }}>Inventory</Link>
-        <Link to="/reports" style={{ color: "white" }}>Reports</Link>
-        <Link to="/staff" style={{ color: "white" }}>Staff</Link>
-        <Link to="/Customer" style={{ color: "white" }}>Customer</Link>
-         <Link to="/Branch" style={{ color: "white" }}>Branches</Link>
-
-
+      <nav className="mt-8 flex flex-col gap-4">
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/pos">POS</Link>
+        <Link to="/inventory">Inventory</Link>
+        <Link to="/reports">Reports</Link>
+        <Link to="/staff">Staff</Link>
+        <Link to="/Customer">Customer</Link>
+        <Link to="/Branch">Branches</Link>
       </nav>
-    </div>
+
+    </aside>
   );
 }
