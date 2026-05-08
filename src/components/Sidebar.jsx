@@ -1,21 +1,54 @@
 import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
   return (
-    <aside className="hidden md:flex md:w-56 lg:w-64 min-h-screen bg-gray-800 text-white p-5 flex-col">
+    <>
       
-      <h2 className="text-2xl font-bold">Duka Yetu</h2>
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
 
-      <nav className="mt-8 flex flex-col gap-4">
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/pos">POS</Link>
-        <Link to="/inventory">Inventory</Link>
-        <Link to="/reports">Reports</Link>
-        <Link to="/staff">Staff</Link>
-        <Link to="/Customer">Customer</Link>
-        <Link to="/Branch">Branches</Link>
-      </nav>
+      {/* Sidebar */}
+      <aside
+        className={`
+          fixed top-0 left-0 z-50
+          h-screen w-56 bg-gray-800 text-white p-5
+          transform transition-transform duration-300
+          
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          
+          md:translate-x-0 md:static md:flex
+        `}
+      >
+        <div className="flex flex-col w-full">
 
-    </aside>
+          {/* Close Button Mobile */}
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="md:hidden self-end text-2xl mb-4"
+          >
+            ✕
+          </button>
+
+          <h2 className="text-2xl font-bold">Duka Yetu</h2>
+
+          <nav className="mt-8 flex flex-col gap-4">
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/pos">POS</Link>
+            <Link to="/inventory">Inventory</Link>
+            <Link to="/reports">Reports</Link>
+            <Link to="/staff">Staff</Link>
+            <Link to="/Customer">Customer</Link>
+            <Link to="/Branch">Branches</Link>
+          </nav>
+
+        </div>
+      </aside>
+
+    </>
   );
 }
