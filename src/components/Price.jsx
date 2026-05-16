@@ -20,7 +20,7 @@ export default function Price(){
                     <li>Basic features</li>
                     <li>Up to 5 users</li>
                     <li>Email support</li>
-                                        <li>Email support</li>
+                    <li>Email support</li>
                     <li>Email support</li>
                     <li>Email support</li>
                     <li>Email support</li>
@@ -39,18 +39,31 @@ export default function Price(){
                     <li>Advanced features</li>
                     <li>Up to 20 users</li>
                     <li>Email support</li>
+                    <li>Email support</li>
+                    <li>Email support</li>
+                    <li>Email support</li>
+                    <li>Email support</li>
                 </ul>
             </div>
 
             {/* Professional Plan */}
             <div className="plan-card">
-                <div className="plan-badge-professional">ADVANCED</div>
-           
+                <div className="plan-badge-professional">ADVANCED
+                
+                </div>
                 <p>$29.99/month</p>
+           
+                
                 <ul>
                     <li>All features</li>
                     <li>Unlimited users</li>
                     <li>Priority support</li>
+                    <li>Email support</li>
+                    <li>Email support</li>
+                    <li>Email support</li>
+                    <li>Email support</li>
+                    <li>Email support</li>
+
                 </ul>
             </div>
 
