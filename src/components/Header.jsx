@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
 export default function Header(){
     const navigate = useNavigate();
     
@@ -14,8 +15,20 @@ export default function Header(){
         }
     };
     return(
-        <header className="bg-white shadow-md px-6 py-4 flex items-center justify-between" >
-       <div className="text-xl font-bold cursor-pointer">Duka Yetu</div>
+        <header className="bg-white shadow-md px-6 py-4 flex items-center justify-between sticky top-0 " >
+<Link to="/" className="flex items-center gap-3 pl-2 group focus:outline-none">
+  {/* The Logo Icon */}
+  {/* <img 
+    src={logo} 
+    alt="Duka Yetu Logo" 
+    className="h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+  /> */}
+  
+  {/* The Brand Name Text */}
+  <span className="text-xl font-bold tracking-tight text-gray-900">
+    Duka<span className="text-green-600">Yetu</span>
+  </span>
+</Link>
         <nav className="flex gap-6 items-center ">
             <Link to="/" className="text-black hover:text-green-800  hover:underline">Home</Link>
             <a href="#features" onClick={handleFeaturesClick} className="text-black hover:text-green-800 hover:underline">Features</a>
