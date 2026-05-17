@@ -7,7 +7,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
       {/* Mobile Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          className="fixed inset-0 bg-green-900/50 z-40 md:hidden"
           onClick={() => setSidebarOpen(false)}
         ></div>
       )}
@@ -34,7 +34,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
             ✕
           </button>
 
-          <h2 className="text-2xl font-bold">Duka Yetu</h2>
+         <span className="text-xl font-bold tracking-tight text-gray-900">
+    Duka<span className="text-green-600">Yetu</span>
+  </span>
 
           <nav className="mt-8 flex flex-col gap-4">
             <Link to="/dashboard">Dashboard</Link>
