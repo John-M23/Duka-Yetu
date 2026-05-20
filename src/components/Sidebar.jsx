@@ -3,54 +3,87 @@ import { Link } from "react-router-dom";
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
   return (
     <>
-      
-      {/* Mobile Overlay */}
+      {/* MOBILE OVERLAY */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-green-900/50 z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
           onClick={() => setSidebarOpen(false)}
         ></div>
       )}
 
-      {/* Sidebar */}
+      {/* SIDEBAR */}
       <aside
         className={`
           fixed top-0 left-0 z-50
-          h-screen w-56 bg-gray-800 text-white p-5
+          h-screen w-64 bg-green-700 text-white p-5
           transform transition-transform duration-300
-          
+
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          
-          md:translate-x-0 md:static md:flex
+
+          md:translate-x-0 md:static
         `}
       >
-        <div className="flex flex-col w-full">
 
-          {/* Close Button Mobile */}
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="md:hidden self-end text-2xl mb-4"
+        {/* LOGO */}
+        {/* <h1 className="text-3xl font-bold">
+          <span className="text-white">Duka </span>
+          <span className="text-green-300">Yetu</span>
+        </h1> */}
+
+        {/* NAVIGATION */}
+        <nav className="mt-10 flex flex-col gap-3">
+
+          <Link
+            to="/dashboard"
+            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            ✕
-          </button>
+            Dashboard
+          </Link>
 
-         <span className="text-xl font-bold tracking-tight text-gray-900">
-    Duka<span className="text-green-600">Yetu</span>
-  </span>
+          <Link
+            to="/pos"
+            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+          >
+            POS
+          </Link>
 
-          <nav className="mt-8 flex flex-col gap-4">
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/pos">POS</Link>
-            <Link to="/inventory">Inventory</Link>
-            <Link to="/reports">Reports</Link>
-            <Link to="/staff">Staff</Link>
-            <Link to="/Customer">Customer</Link>
-            <Link to="/Branch">Branches</Link>
-          </nav>
+          <Link
+            to="/inventory"
+            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+          >
+            Inventory
+          </Link>
 
-        </div>
+          <Link
+            to="/reports"
+            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+          >
+            Reports
+          </Link>
+
+          <Link
+            to="/staff"
+            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+          >
+            Staff
+          </Link>
+
+          <Link
+            to="/customer"
+            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+          >
+            Customers
+          </Link>
+
+          <Link
+            to="/branch"
+            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+          >
+            Branches
+          </Link>
+
+        </nav>
       </aside>
-
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./price.css"
 import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Price(){
     return(<>
@@ -80,6 +81,7 @@ export default function Price(){
             </div> */}
         </div>
         </div>
+        <Footer />
         </>
     );
 }

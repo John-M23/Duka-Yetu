@@ -1,41 +1,31 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
+import DashboardHeader from "../components/DashboardHeader";
 
 export default function DashboardLayout({ children }) {
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-100 text-gray-800">
+    <div className="flex min-h-screen bg-[#f5f7fb] pt-16">
 
-      {/* Sidebar */}
+      {/* SIDEBAR */}
       <Sidebar
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
       />
 
-      {/* Main Section */}
+      {/* MAIN AREA */}
       <div className="flex-1 flex flex-col">
 
-        {/* Mobile Top Navbar */}
-        <header className="md:hidden flex items-center justify-between bg-white px-4 py-3 shadow-sm">
+        {/* HEADER */}
+        <DashboardHeader
+          setSidebarOpen={setSidebarOpen}
+        />
 
-          {/* Hamburger */}
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="text-3xl text-gray-700"
-          >
-            ☰
-          </button>
-
-          {/* Profile */}
-          <div className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center font-bold text-lg">
-            JM
-          </div>
-
-        </header>
-
-        {/* Main Content */}
-        <main className="flex-1 p-3 md:p-6">
+        {/* PAGE CONTENT */}
+       
+        <main className="p-6 pt-16 flex-1">
           {children}
         </main>
 

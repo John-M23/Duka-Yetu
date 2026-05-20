@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import heroImage from '../assets/Login-template1.png';
 import  { useNavigate } from 'react-router-dom';
@@ -153,6 +154,7 @@ export default function Home() {
   </div>
 </section>
       </main>
+      <Footer />
     </>
   );
 }

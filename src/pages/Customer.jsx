@@ -6,7 +6,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 export default function Customer() {
     return(
         <DashboardLayout>
-<div className="min-h-screen bg-gray-50 py-8">
+            <div className="min-h-screen bg-gray-50 py-8">
   <div className="mx-auto w-full max-w-6xl px-4">
     <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white p-6 shadow-sm">
       <h1 className="text-3xl font-semibold">Customers</h1>
