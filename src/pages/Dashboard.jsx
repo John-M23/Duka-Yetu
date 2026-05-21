@@ -43,6 +43,47 @@ export default function Dashboard() {
           {/* Chart goes here */}
         </div>
 
+         <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-gray-500">Top Selling Product</p>
+          <h6 className="">
+        <ol>
+          <li>Cocacolla - 100 units   ksh12,500</li>
+          <li>Cocacolla - 100 units   ksh12,500</li>
+        <li>Cocacolla - 100 units   ksh12,500</li>
+        <li>Cocacolla - 100 units   ksh12,500</li>
+        <li>Cocacolla - 100 units   ksh12,500</li>
+        </ol>
+
+
+          </h6>
+        </div>
+
+         <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-gray-500">Recent Orders</p>
+          <h2 className="">
+            <ol>
+              <li>
+            order#1024   <span bg green-200>completed</span> ksh1250 </li>
+            <li>order#1023  <span bg yellow-200>pending</span> ksh1250 </li>
+           
+          </ol>
+          </h2>
+        </div>
+
+         <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-gray-500">Low Stocks Alert </p>
+          <h2 className="">
+
+            <ol>
+              <li>
+            Raha 500ml   <span bg yellow-200>low stock</span> 5 units </li>
+            <li>Raha 500ml   <span bg yellow-200>low stock</span> 5 units </li> 
+            <li>Raha 500ml   <span bg yellow-200>low stock</span> 5 units </li>
+            </ol>
+
+          </h2>
+        </div>
+
       </div>
     </DashboardLayout>
   );
