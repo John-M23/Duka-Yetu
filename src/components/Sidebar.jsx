@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CiLogout} from "react-icons/ci";
+import { CiLogout } from "react-icons/ci";
 import { IoIosSettings } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdGroups2 } from "react-icons/md";
@@ -8,7 +8,6 @@ import { FaRegChartBar } from "react-icons/fa6";
 import { GiAmmoBox } from "react-icons/gi";
 import { FaHome } from "react-icons/fa";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
-
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
   return (
@@ -24,96 +23,96 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
       {/* SIDEBAR */}
       <aside
         className={`
-            fixed top-0 left-0 z-50
-          h-screen w-64 bg-green-700 text-white p-5
-          transform transition-transform duration-300
+          bg-green-700 text-white
+          w-64 h-screen p-5 flex flex-col
+          transition-transform duration-300
 
+          fixed top-0 left-0 z-50
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
 
-          md:translate-x-0 md:static md:flex-shrink-0
+          md:translate-x-0 md:sticky md:top-0
         `}
       >
-
         {/* LOGO */}
-        {/* <h1 className="text-3xl font-bold">
+        <h1 className="text-4xl font-bold">
           <span className="text-white">Duka </span>
           <span className="text-green-300">Yetu</span>
-        </h1> */}
+        </h1>
 
         {/* NAVIGATION */}
-        <nav className="mt-10 flex flex-col gap-3">
-
+        <nav className="mt-10 flex flex-col gap-3 flex-1">
           <Link
             to="/dashboard"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <FaHome  className="inline mr-2"/>
-
+            <FaHome />
             Dashboard
           </Link>
 
           <Link
             to="/pos"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <MdOutlineShoppingCartCheckout className="inline mr-2" />
+            <MdOutlineShoppingCartCheckout />
             POS
           </Link>
 
           <Link
             to="/inventory"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <GiAmmoBox  className="inline mr-2"/>
+            <GiAmmoBox />
             Inventory
           </Link>
 
           <Link
             to="/reports"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <FaRegChartBar  className="inline mr-2"/>
+            <FaRegChartBar />
             Reports
           </Link>
 
           <Link
             to="/staff"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <FaPeopleGroup  className="inline mr-2"/>
+            <FaPeopleGroup />
             Staff
           </Link>
 
           <Link
             to="/customer"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <MdGroups2  className="inline mr-2"/>
+            <MdGroups2 />
             Customers
           </Link>
 
           <Link
             to="/branch"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <FaLocationDot classname="inline mr-2" />
+            <FaLocationDot />
             Branches
           </Link>
+
           <Link
             to="/settings"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition"
           >
-            <IoIosSettings className="inline mr-2" />
+            <IoIosSettings />
             Settings
           </Link>
+
+          {/* PUSHES LOGOUT TO BOTTOM */}
           <Link
             to="/logout"
-            className="hover:bg-green-600 px-4 py-3 rounded-xl transition mt-auto"
+            className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition mt-auto"
           >
-            <CiLogout className="inline mr-2" />
+            <CiLogout />
             Logout
           </Link>
-
         </nav>
       </aside>
     </>
