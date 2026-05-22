@@ -1,8 +1,10 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import dashboard from '../assets/Dashboard-Image.png';
 import heroImage from '../assets/Login-template1.png';
 import  { useNavigate } from 'react-router-dom';
+import { fromJSON } from 'postcss';
 export default function Home() {
   const navigate = useNavigate();
   return (
@@ -66,8 +68,8 @@ export default function Home() {
 
       {/* Dashboard Image */}
       <img
-        src={heroImage}
-        alt="POS preview"
+        src={dashboard}
+        alt="Image of the dashboard interface"
         className="relative rounded-2xl shadow-2xl border border-gray-200"
       />
     </div>
