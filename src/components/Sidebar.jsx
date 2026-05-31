@@ -34,10 +34,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
         `}
       >
         {/* LOGO */}
-        <h1 className="text-4xl font-bold">
-          <span className="text-white">Duka </span>
-          <span className="text-green-300">Yetu</span>
-        </h1>
+   
 
         {/* NAVIGATION */}
         <nav className="mt-10 flex flex-col gap-3 flex-1">
