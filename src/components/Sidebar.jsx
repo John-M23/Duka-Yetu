@@ -105,7 +105,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
             Settings
           </Link>
 
-          {/* PUSHES LOGOUT TO BOTTOM */}
+        
           <Link
             to="/logout"
             className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition mt-auto"

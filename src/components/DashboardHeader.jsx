@@ -3,7 +3,7 @@ import { FaBars, FaBell, FaChevronDown } from "react-icons/fa";
 // 1. Accept setSidebarOpen as a prop from DashboardLayout
 export default function DashboardHeader({ setSidebarOpen }) {
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 fixed top-0 left-0 right-0 z-50">
+    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between  fixed px-6 top-0 left-0 right-0 z-50">
 
       {/* LEFT SIDE */}
       <div className="flex items-center gap-4 sm:gap-6">

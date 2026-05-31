@@ -6,7 +6,7 @@ export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className=" min-h-screen  flex bg-[#f5f7fb]">
+    <div className=" min-h-screen  flex bg-gray-100">
       
       {/* SIDEBAR: Pinned to the left side */}
       <Sidebar
@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }) {
       />
 
       {/* MAIN CONTAINER: Takes up the remaining horizontal space */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 pt-16">
         
         {/* HEADER: Ensure DashboardHeader has 'fixed' or 'sticky' and 'top-0' inside its own component */}
         <DashboardHeader setSidebarOpen={setSidebarOpen} />

@@ -143,7 +143,27 @@ export default function Login() {
             className="w-full border border-gray-300 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-green-500"
             required
           />
+        
+            <label className="flex items-center space-x-2 text-sm">
+              <input
+                type="checkbox"
+                name="remember"
+                checked={formData.remember}
+                onChange={handleChange}
+                className="form-checkbox h-4 w-4 text-green-600 cursor-pointer"
+              />
+              <span className="text-green-700"> Remember me</span>
+            </label>
+          
 
+         <h3 className="text-sm text-gray-600 text-right">
+            <Link
+              to="/forgot-password"
+              className="text-green-700 hover:underline"
+            >
+              Forgot Password?
+            </Link>
+          </h3>
           <button
             type="submit"
             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl transition duration-300"
