@@ -104,7 +104,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
         
           <Link
-            to="/logout"
+            to="/login"
             className="flex items-center gap-3 hover:bg-green-600 px-4 py-3 rounded-xl transition mt-auto"
           >
             <CiLogout />
