@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import dashboard from '../assets/Dashboard-Image.png';
-import coke from '../assets/login-template1.png';
+import coke from '../assets/Login-template1.png';
 export const products = {
 drinks: [
     {
