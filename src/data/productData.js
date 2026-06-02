@@ -5,7 +5,7 @@ import coke from '../assets/Login-template1.png';
 export const products = {
 drinks: [
     {
-        id: 1,
+        id: "drink-1",
         name: "Coca Cola",
         
         price: 150,
@@ -15,7 +15,7 @@ drinks: [
                         
     },
     {
-        id: 2,
+        id: "drink-2",
         name: "Pepsi",
         price: 150,
         unit:"ml",
@@ -23,7 +23,7 @@ drinks: [
         image: coke
     },
         {
-        id: 3,
+        id: "drink-3",
         name: "Fanta",
         price: 150,
         unit:"ml",
@@ -31,7 +31,7 @@ drinks: [
         image: coke
     },
         {
-        id: 4,
+        id: "drink-4",
         name: "Sprite",
         price: 150, 
         unit:"ml",
@@ -39,7 +39,7 @@ drinks: [
         image: coke
         },
         {
-        id: 5,
+        id: "drink-5",
         name: "Mirinda",
         price: 150,
         unit:"ml",
@@ -50,30 +50,46 @@ drinks: [
 ],
 flour: [
     {
-        id: 1,
+        id: "flour-1",
         name: "Maize Flour",
         price: 200,
         unit:"kg",
         size:1,
-        image: "/path/to/maize-flour.jpg"   
+        image: coke 
     },
     {
-        id: 2,
+        id: "flour-2" ,
         name: "Wheat Flour",
         price: 250,
         unit:"kg",
         size:1,
-        image: "/path/to/wheat-flour.jpg"
+        image: coke                     
     }
     ],
 liquor: [
-    {id: 1,
+    {id: "liquor-1",
     name: "Whiskey",
     price: 1500,
     unit:"ml",
     size:750,
-    image: "/path/to/whiskey.jpg"
+    image: coke
     },
+    {id: "liquor-2",
+    name: "Vodka",
+    price: 1200,    
+    unit:"ml",
+    size:750,
+    image: coke
+    },
+
+    {id: "liquor-3",
+    name: "Rum",
+    price: 1000,
+    unit:"ml",
+    size:750,   
+    image: coke 
+    }   
+
 ],
 
 };
