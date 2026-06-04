@@ -9,6 +9,8 @@
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     text-align: center;
     overflow-x: hidden;
+    cursor: default;
+    
 }
 
 .pricing-container {
@@ -68,7 +70,7 @@
 .plan-card p {
     font-size: 1.2rem;
     color: #22ab67;
-    margin-bottom: 16px;
+    margin-top: 25px;
     font-weight: 600;
 }
 .plan-card ul {

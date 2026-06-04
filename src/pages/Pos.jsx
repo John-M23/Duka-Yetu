@@ -5,6 +5,8 @@ import ProductCard from "../components/ProductCard";
 
 export default function Pos() {
   const [cart, setCart] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("cash");
 
   const categories = Object.keys(products);
 
@@ -52,11 +54,16 @@ export default function Pos() {
     );
   };
 
-  // Remove item completely
+  // Remove item
   const removeItem = (id) => {
     setCart((prevCart) =>
       prevCart.filter((item) => item.id !== id)
     );
+  };
+
+  // Clear cart
+  const clearCart = () => {
+    setCart([]);
   };
 
   // Total
@@ -64,6 +71,19 @@ export default function Pos() {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  // Checkout
+  const checkout = () => {
+    const receiptNumber = `INV-${Date.now()}`;
+
+    alert(
+      `Receipt: ${receiptNumber}
+Payment Method: ${paymentMethod}
+Total: Ksh ${total}`
+    );
+
+    setCart([]);
+  };
 
   return (
     <DashboardLayout>
@@ -78,11 +98,13 @@ export default function Pos() {
 
           {/* Search */}
           <div className="flex items-center border rounded-lg px-3 py-2 mb-6 bg-white shadow-sm">
-            <input
-              type="text"
-              placeholder="Search products..."
-              className="w-full outline-none"
-            />
+         <input
+  type="text"
+  placeholder="Search products..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="w-full outline-none"
+/>
           </div>
 
           {/* Categories */}
@@ -95,13 +117,19 @@ export default function Pos() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
 
-                {products[category].map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    addToCart={addToCart}
-                  />
-                ))}
+        {products[category]
+  .filter((product) =>
+    product.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  )
+  .map((product) => (
+    <ProductCard
+      key={product.id}
+      product={product}
+      addToCart={addToCart}
+    />
+))}
 
               </div>
 
@@ -111,99 +139,120 @@ export default function Pos() {
         </div>
 
         {/* CART */}
-    <div className="hidden lg:block w-80 bg-white border-1 p-6 sticky top-0 h-screen overflow-y-auto">
-          <h2 className="text-xl font-bold mb-4">
-            Cart
-          </h2>
+<div className="hidden lg:block w-80 bg-white border-l p-6 sticky top-0 h-screen overflow-y-auto">
 
-          {cart.length === 0 ? (
-            <p className="text-gray-500">
-              No items in cart
-            </p>
-          ) : (
-            <>
-              {cart.map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-gray-100 p-3 mb-3 rounded"
-                >
-                  <div className="flex justify-between items-start">
+  <h2 className="text-xl font-bold mb-4">
+    Cart
+  </h2>
 
-                    <div>
-                      <p className="font-medium">
-                        {item.name}
-                      </p>
+  {cart.length === 0 ? (
+    <p className="text-gray-500">
+      No items in cart
+    </p>
+  ) : (
+    <>
+      {cart.map((item) => (
+        <div
+          key={item.id}
+          className="bg-gray-100 p-3 mb-3 rounded"
+        >
+          <div className="flex justify-between items-start">
 
-                      <p className="text-sm text-gray-500">
-                        {item.size}
-                        {item.unit}
-                      </p>
-                    </div>
+            <div>
+              <p className="font-medium">
+                {item.name}
+              </p>
 
-                    <button
-                      onClick={() => removeItem(item.id)}
-                      className="text-red-500 font-bold"
-                    >
-                      ✕
-                    </button>
+              <p className="text-sm text-gray-500">
+                {item.size} {item.unit}
+              </p>
+            </div>
 
-                  </div>
+            <button
+              onClick={() => removeItem(item.id)}
+              className="text-red-500 font-bold"
+            >
+              ✕
+            </button>
 
-                  <div className="flex items-center justify-between mt-3">
+          </div>
 
-                    <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between mt-3">
 
-                      <button
-                        onClick={() =>
-                          decreaseQuantity(item.id)
-                        }
-                        className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
-                      >
-                        -
-                      </button>
+            <div className="flex items-center gap-2">
 
-                      <span className="font-medium">
-                        {item.quantity}
-                      </span>
+              <button
+                onClick={() => decreaseQuantity(item.id)}
+                className="px-3 py-1 bg-gray-300 rounded"
+              >
+                -
+              </button>
 
-                      <button
-                        onClick={() =>
-                          addToCart(item)
-                        }
-                        className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
-                      >
-                        +
-                      </button>
+              <span>{item.quantity}</span>
 
-                    </div>
+              <button
+                onClick={() => addToCart(item)}
+                className="px-3 py-1 bg-gray-300 rounded"
+              >
+                +
+              </button>
 
-                    <span className="font-semibold">
-                      Ksh {item.price * item.quantity}
-                    </span>
+            </div>
 
-                  </div>
-                </div>
-              ))}
+            <span>
+              Ksh {item.price * item.quantity}
+            </span>
 
-              {/* Total */}
-              <div className="border-t pt-4 mt-4">
-
-                <div className="flex justify-between text-lg font-bold">
-                  <span>Total</span>
-                  <span>Ksh {total}</span>
-                </div>
-
-                <button className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded">
-                  Checkout
-                </button>
-
-              </div>
-            </>
-          )}
+          </div>
 
         </div>
+      ))}
 
-      </div>
-    </DashboardLayout>
+      {/* Summary */}
+      <div className="border-t pt-4 mt-4">
+
+        <p className="mb-2">
+          Items: {cart.reduce(
+            (sum, item) => sum + item.quantity,
+            0
+          )}
+        </p>
+
+  <div className="flex justify-between text-lg font-bold">
+    <span>Total</span>
+    <span>Ksh {total}</span>
+  </div>
+
+  <select
+    value={paymentMethod}
+    onChange={(e) => setPaymentMethod(e.target.value)}
+    className="w-full border rounded p-2 mt-4"
+  >
+    <option value="cash">Cash</option>
+    <option value="mpesa">M-Pesa</option>
+    <option value="card">Card</option>
+  </select>
+
+  <button
+    onClick={checkout}
+    className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded"
+  >
+    Checkout
+  </button>
+
+  <button
+    onClick={clearCart}
+    className="w-full mt-2 bg-red-500 text-white py-2 rounded"
+  >
+    Clear Cart
+  </button>
+
+</div>
+</>
+  )}
+</div>
+   </div>
+
+    </DashboardLayout>  
   );
 }
