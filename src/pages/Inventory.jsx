@@ -1,16 +1,48 @@
-import React from 'react';
+import  React ,{useState} from "react";
 import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import DashboardLayout from "../Layouts/DashboardLayout";
 import { inventory } from "../data/inventoryData";
 
+import AddProductModal from '../components/AddProductModal';
 export default function Inventory() {
+const [showModal, setShowModal] = useState(false);
+const [searchTerm, setSearchTerm] = useState("");
+
+
+// For Editing & Deleting 
+const handleEdit = (id) => {
+  alert(`Edit product with ID: ${id}`);
+};
+
+
+
+const [inventoryItems, setInventoryItems] = useState(inventory);
+
+const handleDelete = (id) => {
+  if (
+    window.confirm(
+      "Are you sure you want to delete this product?"
+    )
+  ) {
+    setInventoryItems((prev) =>
+      prev.filter((item) => item.id !== id)
+    );
+  }
+};
+
+
+
   return (
     <DashboardLayout>
       <div className="p-4">
         <h2 className="text-xl font-semibold mb-4">Inventory</h2>
         <div className="mb-4">
-          <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          <button 
+          onClick={() => setShowModal(true)
+
+          }
+          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
             Add New Product
           </button>
         </div>
@@ -18,6 +50,9 @@ export default function Inventory() {
           className="w-full mb-4 px-3 py-2 border rounded"
           type="text"
           placeholder="Search inventory..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          
         />
         <div className="overflow-auto border rounded-lg">
           <table className="min-w-full text-sm text-left text-gray-700">
@@ -38,7 +73,13 @@ export default function Inventory() {
               </tr>
             </thead>
             <tbody>
-              {inventory.map((item) => (
+              {inventoryItems 
+              .filter((item) => 
+                item.product
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())
+              )
+            .map((item) => (
                 <tr key={item.id} className="hover:bg-gray-50">
                   <td className="px-4 py-2">
                     <img
@@ -68,10 +109,16 @@ export default function Inventory() {
                   </td>
                   <td className="px-4 py-2">{item.sold}</td>
                   <td className="px-2 py-1 space-x-2 whitespace-nowrap">
-                    <button className="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                    <button 
+                      className="bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                      onClick={() => handleEdit(item.id)}
+                    >
                       Edit
                     </button>
-                    <button className="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                    <button 
+                      className="bg-red-500 text-white px-2 py-1 rounded text-xs"
+                      onClick={() => handleDelete(item.id)}
+                    >
                       Delete
                     </button>
                   </td>
@@ -84,6 +131,7 @@ export default function Inventory() {
           - Back to Dashboard
         </Link>
       </div>
+      <AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} />  
     </DashboardLayout>
   );
 }

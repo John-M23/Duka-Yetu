@@ -14,23 +14,23 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
         
         <div className="bg-white p-6 rounded-xl shadow">
-          <p className="text-gray-500"> <MdPhoneIphone  className="text-xl mr-2"/>Unique Phone Numbers</p>
+          <p className="text-gray-500"> <MdPhoneIphone  className="text-xl  text-green-500"/>Unique Phone Numbers</p>
           <h2 className="text-3xl font-bold">622</h2>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow">
-          <p className="text-gray-500"> <MdShoppingBag className="text-xl mr-2"/>Total Valid Orders</p>
+          <p className="text-gray-500"> <MdShoppingBag className="text-xl text-green-500   mr-2"/>Total Valid Orders</p>
           <h2 className="text-3xl font-bold">916</h2>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow">
-          <p className="text-gray-500"> <FaRegClipboard className="text-xl mr-2"/>
+          <p className="text-gray-500"> <FaRegClipboard className="text-xl text-green-500 mr-2"/>
 Valid Orders Today</p>
           <h2 className="text-3xl font-bold">2</h2>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow">
-          <p className="text-gray-500"> <FaWallet className="text-xl mr-2"/>Income Today</p>
+          <p className="text-gray-500"> <FaWallet className="text-xl text-green-500 mr-2"/>Income Today</p>
           <h2 className="text-3xl font-bold">360</h2>
         </div>
       </div>
