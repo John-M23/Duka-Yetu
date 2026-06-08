@@ -6,6 +6,9 @@ import { inventory } from "../data/inventoryData";
 
 import AddProductModal from '../components/AddProductModal';
 export default function Inventory() {
+  const handleAddProduct = (newProduct) => {
+    setInventoryItems((prev) => [...prev, newProduct]);
+  }
 const [showModal, setShowModal] = useState(false);
 const [searchTerm, setSearchTerm] = useState("");
 
@@ -131,7 +134,7 @@ const handleDelete = (id) => {
           - Back to Dashboard
         </Link>
       </div>
-      <AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} />  
+      <AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} onAddProduct={handleAddProduct} />
     </DashboardLayout>
   );
 }
