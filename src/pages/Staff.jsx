@@ -1,4 +1,3 @@
-import react from 'react'
 import DashboardLayout from "../Layouts/DashboardLayout";
 import { Link } from 'react-router-dom';
 import { PiEyeThin } from "react-icons/pi";
@@ -36,13 +35,13 @@ export default function Staff()
                     </tr>
                 </thead>
                 <tbody className="divide-y">
-                    <tr className="hover:bg-gray-50">
+                    <tr className="hover:bg-green-50">
                         <td className="px-4 py-2">John Doe</td>
                         <td className="px-4 py-2">Manager</td>
                         <td className="px-4 py-2">john@gmail.com</td>
                         <td className="px-4 py-2">+254712345678</td>
                         <td className='px-4 py-2'>203</td>
-                        <td className='px-4 py-2 '>1234 <PiEyeThin  className="text-green-700"/></td>
+                        <td className='px-4 py-2 '>1234 <PiEyeThin  className="text-green-700" /></td>
                         <td className="px-4 py-2 space-x-2">
                             <button className="bg-blue-500 text-white px-2 py-1 rounded text-xs hover:bg-blue-600">
                                 Edit
@@ -52,7 +51,7 @@ export default function Staff()
                             </button>
                         </td>
                     </tr>
-                    <tr className="hover:bg-gray-50">
+                    <tr className="hover:bg-green-50">
                         <td className="px-4 py-2">Jane Smith</td>
                         <td className="px-4 py-2">Cashier</td>
                         <td className="px-4 py-2">jane@gmail.com</td>

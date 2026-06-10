@@ -1,10 +1,14 @@
-import  React ,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import DashboardLayout from "../Layouts/DashboardLayout";
 import { inventory } from "../data/inventoryData";
 
 import AddProductModal from '../components/AddProductModal';
+import { VscHistory } from "react-icons/vsc";
+import { MdModeEditOutline } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+
 export default function Inventory() {
   const handleAddProduct = (newProduct) => {
     setInventoryItems((prev) => [...prev, newProduct]);
@@ -20,7 +24,13 @@ const handleEdit = (id) => {
 
 
 
-const [inventoryItems, setInventoryItems] = useState(inventory);
+const [inventoryItems, setInventoryItems] = useState(() => {
+  const savedItems = localStorage.getItem("inventory");
+
+  return savedItems
+    ? JSON.parse(savedItems)
+    : inventory;
+});
 
 const handleDelete = (id) => {
   if (
@@ -34,6 +44,14 @@ const handleDelete = (id) => {
   }
 };
 
+
+// Local Storage 
+useEffect(() => {
+  localStorage.setItem(
+    "inventory",
+    JSON.stringify(inventoryItems)
+  );
+}, [inventoryItems]);
 
 
   return (
@@ -83,14 +101,18 @@ const handleDelete = (id) => {
                   .includes(searchTerm.toLowerCase())
               )
             .map((item) => (
-                <tr key={item.id} className="hover:bg-gray-50">
-                  <td className="px-4 py-2">
-                    <img
-                      src={item.image}
-                      alt={item.product} // Fixed: Changed item.name to item.product
-                      className="w-16 h-12 object-cover rounded"
-                    />
-                  </td>
+                <tr key={item.id} className="hover:bg-green-50">
+               <td className="px-4 py-2">
+                             {item.image ? (
+                <img
+                          src={item.image}
+                    alt={item.product}
+               className="w-16 h-12 object-cover rounded"
+       />
+         ) : (
+    <span>No Image</span>
+  )}
+</td>
                   <td className="px-4 py-2">{item.product}</td> {/* Fixed: Changed item.name to item.product */}
                   <td className="px-4 py-2">{item.category}</td>
                   <td className="px-4 py-2">{item.description}</td>
@@ -117,14 +139,20 @@ const handleDelete = (id) => {
                       onClick={() => handleEdit(item.id)}
                     >
                       Edit
+                      <MdModeEditOutline />
                     </button>
                     <button 
                       className="bg-red-500 text-white px-2 py-1 rounded text-xs"
                       onClick={() => handleDelete(item.id)}
                     >
                       Delete
+                      <MdDelete />
                     </button>
                   </td>
+                  <td ><button className=" bg-green-500 text-white px-2 py-1 rounded text-xs"> Edit stock
+                    </button></td>
+                  <td><button className="bg-blue-500 text-white px-2 py-1 rounded text-xs hover:Text:View Hidtory">
+                    History<VscHistory /></button ></td>
                 </tr>
               ))}
             </tbody>
@@ -135,6 +163,7 @@ const handleDelete = (id) => {
         </Link>
       </div>
       <AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} onAddProduct={handleAddProduct} />
+        
     </DashboardLayout>
   );
 }

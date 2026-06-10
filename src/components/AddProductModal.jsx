@@ -35,7 +35,7 @@ const handleSubmit = (e) => {
   onClose();
 };
     return (
-        <div className=" fixed inset-0 bg-green-500 bg-opacity-50 flex items-center justify-center z-50">
+        <div className=" fixed inset-0 bg-transparent bg-opacity-26 flex items-center justify-center z-50">
             <div className="bg-gray-100 p-6 rounded-lg w-full max-w-md max-h-full overflow-auto">
                 <h2 className="text-xl font-semibold mb-4">Add New Product</h2>
                 <form onSubmit={handleSubmit}>
