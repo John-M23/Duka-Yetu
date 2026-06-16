@@ -13,6 +13,14 @@ import Report from "../pages/Report";
 import Staff from "../pages/Staff";
 import Customer from "../pages/Customer";
 import Branch from "../pages/Branch";
+import Receipt from "../pages/Settings/Receipt";
+import Payment from "../pages/Settings/Payment";
+import Security from "../pages/Settings/Security";
+import Taxes from "../pages/Settings/Taxes";
+import Subscription from "../pages/Settings/Subscription";
+
+
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -29,6 +37,11 @@ export default function AppRoutes() {
         <Route path="/staff" element={<Staff />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/branch" element={<Branch />} />
+        <Route path="/receipt" element={<Receipt />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/security" element={<Security />} />
+        <Route path="/taxes" element={<Taxes />} />
+        <Route path="/subscription" element={<Subscription />} />
       </Routes>
     </BrowserRouter>
   );

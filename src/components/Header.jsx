@@ -1,6 +1,6 @@
 import { useState } from "react"; // 1. Imported useState
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png";
+
 import { FaBars, FaTimes } from "react-icons/fa"; // Imported FaTimes for a close 'X' icon
 
 export default function Header() {
