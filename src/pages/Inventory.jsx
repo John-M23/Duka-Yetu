@@ -10,16 +10,33 @@ import { MdModeEditOutline } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
 export default function Inventory() {
-  const handleAddProduct = (newProduct) => {
+  const[editingProduct,setEditingProduct]=useState(null);
+const handleAddProduct = (newProduct) => {
+  if (editingProduct) {
+    setInventoryItems((prev) =>
+      prev.map((item) =>
+        item.id === newProduct.id ? newProduct : item
+      )
+    );
+  } else {
     setInventoryItems((prev) => [...prev, newProduct]);
   }
+
+  setEditingProduct(null);
+};
 const [showModal, setShowModal] = useState(false);
 const [searchTerm, setSearchTerm] = useState("");
 
 
 // For Editing & Deleting 
+
 const handleEdit = (id) => {
-  alert(`Edit product with ID: ${id}`);
+const product = inventoryItems.find(
+  (item)=> item.id === id 
+);
+setEditingProduct(product);
+setShowModal(true);
+
 };
 
 
@@ -162,7 +179,15 @@ useEffect(() => {
           - Back to Dashboard
         </Link>
       </div>
-      <AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} onAddProduct={handleAddProduct} />
+     <AddProductModal
+  isOpen={showModal}
+  onClose={() => {
+    setShowModal(false);
+    setEditingProduct(null);
+  }}
+  onAddProduct={handleAddProduct}
+  editingProduct={editingProduct}
+/>
         
     </DashboardLayout>
   );

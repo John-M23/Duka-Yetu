@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-export default function AddProductModal({ isOpen, onClose, onAddProduct }) {
+import React, { useState ,useEffect} from 'react';
+export default function AddProductModal({ isOpen, onClose, onAddProduct, editingProduct ,}) {
    
 const [name, setName] = useState("");
 const [category, setCategory] = useState("");
@@ -11,13 +11,34 @@ const [alertLevel, setAlertLevel] = useState("");
 const [buyPrice, setBuyPrice] = useState("");
 const [sellPrice, setSellPrice] = useState("");
 
+
+useEffect(() => {
+  if (editingProduct) {
+       
+        const t = setTimeout(() => {
+            setName(editingProduct.product);
+            setCategory(editingProduct.category);
+            setDescription(editingProduct.description);
+            setStock(editingProduct.stock);
+            setStockUnit(editingProduct.stockUnit);
+            setAlertLevel(editingProduct.alertLevel);
+            setBuyPrice(editingProduct.buyPrice);
+            setSellPrice(editingProduct.sellPrice);
+        }, 0);
+        return () => clearTimeout(t);
+  }
+}, [editingProduct]);
  if (!isOpen) return null;
 
+ 
 const handleSubmit = (e) => {
   e.preventDefault();
 
+
+
+
   const newProduct = {
-    id: Date.now(),
+  id: editingProduct ? editingProduct.id : Date.now(),
     product: name,
     category,
     description,
@@ -29,7 +50,7 @@ const handleSubmit = (e) => {
     sold: 0,
     image: "",
   };
-  console.log("New Product:", newProduct);
+  console.log("New Product Added :", newProduct);
   onAddProduct(newProduct);
 
   onClose();
@@ -37,7 +58,9 @@ const handleSubmit = (e) => {
     return (
         <div className=" fixed inset-0 bg-transparent bg-opacity-26 flex items-center justify-center z-50">
             <div className="bg-gray-100 p-6 rounded-lg w-full max-w-md max-h-full overflow-auto">
-                <h2 className="text-xl font-semibold mb-4">Add New Product</h2>
+ <h2 className="text-xl font-semibold mb-4">
+  {editingProduct ? "Edit Product" : "Add New Product"}
+</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
@@ -164,7 +187,7 @@ const handleSubmit = (e) => {
                             type="submit"
                             className="bg-blue-500 mt-8 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         >
-                            Add Product
+                          {editingProduct ? "Update Product" : "Add Product"}
                         </button>
                     </div>
                 </form>
