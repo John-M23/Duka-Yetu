@@ -112,13 +112,15 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
   {settingOpen && (
     <div className="ml-8 mt-2 flex flex-col gap-2">
-      {/* <Link
-        to="/business"
+      
+
+
+ <Link
+        to="/Business"
         className="hover:bg-green-600 px-4 py-2 rounded-xl transition block"
       >
-        Business Profile
-      </Link> */}
-
+        Business Profile 
+      </Link>
       <Link
         to="/payment"
         className="hover:bg-green-600 px-4 py-2 rounded-xl transition block"
@@ -126,12 +128,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
         Payment Settings
       </Link>
 
-      {/* <Link
-        to="/staff-management"
-        className="hover:bg-green-600 px-4 py-2 rounded-xl transition block"
-      >
-        Staff Management
-      </Link> */}
+     
 
       <Link
         to="/receipt"
@@ -153,6 +150,15 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
       >
         Subscription
       </Link>
+
+
+      <Link
+        to="/security"
+        className="hover:bg-green-600 px-4 py-2 rounded-xl transition block"
+      >
+        Security Settings 
+      </Link>
+      
     </div>
   )}
 </div>

@@ -25,7 +25,7 @@ export default function DashboardHeader({ setSidebarOpen }) {
   };
 
   function handleLogout() {
-    // replace with your logout logic
+    
     console.log("Logging out...");
   }
 

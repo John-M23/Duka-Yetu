@@ -18,8 +18,7 @@ import Payment from "../pages/Settings/Payment";
 import Security from "../pages/Settings/Security";
 import Taxes from "../pages/Settings/Taxes";
 import Subscription from "../pages/Settings/Subscription";
-
-
+import Business from "../pages/Settings/Business";
 
 export default function AppRoutes() {
   return (
@@ -42,6 +41,7 @@ export default function AppRoutes() {
         <Route path="/security" element={<Security />} />
         <Route path="/taxes" element={<Taxes />} />
         <Route path="/subscription" element={<Subscription />} />
+        <Route path ="/Business" element={<Business />} />
       </Routes>
     </BrowserRouter>
   );

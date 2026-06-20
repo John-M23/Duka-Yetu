@@ -11,12 +11,15 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   Tooltip,
   PieChart,
   Pie,
   Cell,
+  CartesianGrid,
 } from "recharts";
 
 /* ------------------- COMPONENTS ------------------- */
@@ -35,21 +38,42 @@ function StatCard({ icon, title, value }) {
 
 /* ------------------- MOCK DATA ------------------- */
 
-const revenueData = [
-  { day: "Mon", revenue: 12000 },
-  { day: "Tue", revenue: 18000 },
-  { day: "Wed", revenue: 14000 },
-  { day: "Thu", revenue: 22000 },
-  { day: "Fri", revenue: 28000 },
-  { day: "Sat", revenue: 35000 },
-  { day: "Sun", revenue: 25000 },
+const dailyRevenueData = [
+  { date: "13 Jun", revenue: 12000 },
+  { date: "14 Jun", revenue: 18000 },
+  { date: "15 Jun", revenue: 14000 },
+  { date: "16 Jun", revenue: 22000 },
+  { date: "17 Jun", revenue: 28000 },
+  { date: "18 Jun", revenue: 35000 },
+  { date: "19 Jun", revenue: 25000 },
 ];
 
-const orderData = [
-  { name: "M-Pesa", value: 65 },
-  { name: "Cash", value: 25 },
-  { name: "Card", value: 10 },
+const dailyOrderData = [
+  { date: "13 Jun", orders: 12 },
+  { date: "14 Jun", orders: 18 },
+  { date: "15 Jun", orders: 14 },
+  { date: "16 Jun", orders: 22 },
+  { date: "17 Jun", orders: 28 },
+  { date: "18 Jun", orders: 35 },
+  { date: "19 Jun", orders: 25 },
 ];
+
+const monthlyIncomeData = [
+  { month: "Jan", income: 120000 },
+  { month: "Feb", income: 150000 },
+  { month: "Mar", income: 180000 },
+  { month: "Apr", income: 165000 },
+  { month: "May", income: 210000 },
+  { month: "Jun", income: 245000 },
+];
+
+// const paymentMethodData = [
+//   { name: "M-Pesa", value: 65 },
+//   { name: "Cash", value: 25 },
+//   { name: "Card", value: 10 },
+// ];
+
+
 
 const COLORS = ["#22c55e", "#3b82f6", "#f59e0b"];
 
@@ -119,27 +143,80 @@ export default function Dashboard() {
 
       {/* CHARTS */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* Revenue Chart */}
+        {/*  Daily Revenue Chart */}
         <div className="bg-white p-6 rounded-xl shadow">
-          <h3 className="font-semibold mb-4">Revenue Trend</h3>
+  <h3 className="font-semibold mb-4">
+    Daily Revenue
+  </h3>
 
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={revenueData}>
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Tooltip />
-              <Line
-                type="monotone"
-                dataKey="revenue"
-                stroke="#22c55e"
-                strokeWidth={3}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+  <ResponsiveContainer width="100%" height={300}>
+    <LineChart data={dailyRevenueData}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="date" />
+      <YAxis />
+      <Tooltip />
+      <Line
+        type="monotone"
+        dataKey="revenue"
+        stroke="#22c55e"
+        strokeWidth={3}
+      />
+    </LineChart>
+  </ResponsiveContainer>
+</div>
+
+
+       {/* Order Chart */}
+        <div className="bg-white p-6 rounded-xl shadow">
+  <h3 className="font-semibold mb-4">
+    Daily Order Count
+  </h3>
+
+  <ResponsiveContainer width="100%" height={300}>
+    <BarChart data={dailyOrderData}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="date" />
+      <YAxis />
+      <Tooltip />
+
+      <Bar
+        dataKey="orders"
+        fill="#3b82f6"
+        radius={[4, 4, 0, 0]}
+      />
+    </BarChart>
+  </ResponsiveContainer>
+</div>
+  
+        {/*  Monthly Income */}
+   
+    
+       <div className="bg-white p-6 rounded-xl shadow mb-6">
+  <h3 className="font-semibold mb-4">
+    Monthly Income
+  </h3>
+
+  <ResponsiveContainer width="100%" height={350}>
+    <LineChart data={monthlyIncomeData}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="month" />
+      <YAxis />
+      <Tooltip />
+
+      <Line
+        type="monotone"
+        dataKey="income"
+        stroke="#f59e0b"
+        strokeWidth={3}
+      />
+    </LineChart>
+  </ResponsiveContainer>
+</div>
+
+
 
         {/* Payment Methods */}
-        <div className="bg-white p-6 rounded-xl shadow">
+        {/* <div className="bg-white p-6 rounded-xl shadow">
           <h3 className="font-semibold mb-4">
             Payment Methods
           </h3>
@@ -147,13 +224,13 @@ export default function Dashboard() {
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
-                data={orderData}
+                data={paymentMethodData}
                 dataKey="value"
                 nameKey="name"
                 outerRadius={100}
                 label
               >
-                {orderData.map((entry, index) => (
+                {paymentMethodData.map((entry, index) => (
                   <Cell
                     key={index}
                     fill={COLORS[index]}
@@ -163,7 +240,7 @@ export default function Dashboard() {
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
-        </div>
+        </div> */}
       </div>
 
       {/* SECOND ROW */}
@@ -198,6 +275,7 @@ export default function Dashboard() {
             <thead>
               <tr className="border-b">
                 <th className="text-left py-2">#</th>
+                <th>Mpesa Code</th>
                 <th className="text-left py-2">Customer</th>
                 <th className="text-left py-2">Payment</th>
                 <th className="text-left py-2">Amount</th>
@@ -208,6 +286,7 @@ export default function Dashboard() {
               <tr className="border-b">
                 <td>#1024</td>
                 <td>Jane</td>
+                <td>UFKFN8KBJP</td>
                 <td>M-Pesa</td>
                 <td>Ksh 1,250</td>
               </tr>
@@ -215,16 +294,48 @@ export default function Dashboard() {
               <tr className="border-b">
                 <td>#1023</td>
                 <td>David</td>
+                <td>NA</td>
                 <td>Cash</td>
                 <td>Ksh 800</td>
               </tr>
 
-              <tr>
+              <tr className="border-b">
                 <td>#1022</td>
                 <td>Mike</td>
+                <td>UFKFN8KBJP</td>
                 <td>M-Pesa</td>
                 <td>Ksh 2,100</td>
               </tr>
+           <tr className="border-b"> 
+                <td>#1021</td>
+                <td>Francis</td>
+                <td>UFKFN8KBJP</td>
+                <td>M-Pesa</td>
+                <td>Ksh 100</td>
+              </tr>
+
+                <tr className="border-b">
+                <td>#1020</td>
+                <td>Joseph</td>
+                <td>UFKFN8KBJP</td>
+                <td>M-Pesa</td>
+                <td>Ksh 210</td>
+              </tr>
+
+                <tr className="border-b">
+                <td>#1019</td>
+                <td>Mike</td>
+                <td>NA</td>
+                <td>Cash</td>
+                <td>Ksh 2,100</td>
+              </tr>
+
+
+
+
+
+
+
             </tbody>
           </table>
         </div>
