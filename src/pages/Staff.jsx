@@ -1,81 +1,88 @@
+import { useState } from "react";
+import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 import DashboardLayout from "../Layouts/DashboardLayout";
-import { Link } from 'react-router-dom';
-import { PiEyeThin } from "react-icons/pi";
+ 
+export default function StaffManagement() {
+  const [staff, setStaff] = useState([
+    {
+      id: 1,
+      name: "John Maina",
+      email: "john@gmail.com",
+      role: "Admin",
+      status: "Active",
+    },
+    {
+      id: 2,
+      name: "Mary Wanjiku",
+      email: "mary@gmail.com",
+      role: "Cashier",
+      status: "Active",
+    },
+  ]);
 
-export default function Staff()
-{    return(
-        <DashboardLayout>
-            <div>
-                  <fieldset className="border border-gray-300 p-4 rounded mb-4">
-        <legend className="text-lg font-semibold">Staff Management</legend>
-        <div className="mb-4">
-            <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                Add New Staff
-            </button>
-        </div>
-        <input
-            className="w-full mb-4 px-3 py-2 border rounded"
-            type="text"
-            placeholder="Search staff..."
-        />  
-        <div className="overflow-auto border rounded-lg">
-            <table className="min-w-full text-sm text-left text-gray-700">
-                <thead className="bg-gray-100"> 
-                    <tr>
-                        <th className="px-4 py-2 border-b">Name</th>
+  return (
+    <DashboardLayout>
+    <div className="p-6">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold">
+          Staff Management
+        </h1>
 
-                        <th className="px-4 py-2 border-b">Role</th>
-                        <th className="px-4 py-2 border-b">Email</th>
-                        <th className="px-4 py-2 border-b">Phone</th>
-                        <th className='px-4 py-2 border-b'>Employee Code</th>
-                        <th className='px-4 py-2'>PassWord</th>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+          <FaPlus />
+          Add Staff
+        </button>
+      </div>
 
-                        <th className="px-4 py-2 border-b">Actions</th>
-                        
-                    </tr>
-                </thead>
-                <tbody className="divide-y">
-                    <tr className="hover:bg-green-50">
-                        <td className="px-4 py-2">John Doe</td>
-                        <td className="px-4 py-2">Manager</td>
-                        <td className="px-4 py-2">john@gmail.com</td>
-                        <td className="px-4 py-2">+254712345678</td>
-                        <td className='px-4 py-2'>203</td>
-                        <td className='px-4 py-2 '>1234 <PiEyeThin  className="text-green-700" /></td>
-                        <td className="px-4 py-2 space-x-2">
-                            <button className="bg-blue-500 text-white px-2 py-1 rounded text-xs hover:bg-blue-600">
-                                Edit
-                            </button>
-                            <button className="bg-red-500 text-white px-2 py-1 rounded text-xs hover:bg-red-600">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                    <tr className="hover:bg-green-50">
-                        <td className="px-4 py-2">Jane Smith</td>
-                        <td className="px-4 py-2">Cashier</td>
-                        <td className="px-4 py-2">jane@gmail.com</td>
-                        <td className="px-4 py-2">+254712345679</td>
-                        <td className="px-4 py-2">303</td>
-                        <td className='px-4 py-2'>7035</td>
-                        <td className="px-4 py-2 space-x-2">
-                            <button className="bg-blue-500 text-white px-2 py-1 rounded text-xs hover:bg-blue-600">
-                                Edit
-                            </button>
-                            <button className="bg-red-500 text-white px-2 py-1 rounded text-xs hover:bg-red-600">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </fieldset>
-</div>
+      <div className="bg-white rounded-xl shadow overflow-hidden">
+        <table className="w-full">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="text-left p-4">Name</th>
+              <th className="text-left p-4">Email</th>
+              <th className="text-left p-4">Role</th>
+              <th className="text-left p-4">Status</th>
+              <th className="text-left p-4">Actions</th>
+            </tr>
+          </thead>
 
-                
+          <tbody>
+            {staff.map((user) => (
+              <tr
+                key={user.id}
+                className="border-t"
+              >
+                <td className="p-4">{user.name}</td>
+                <td className="p-4">{user.email}</td>
+                <td className="p-4">{user.role}</td>
 
-            
-        </DashboardLayout>
-    );
+                <td className="p-4">
+                  <span
+                    className={`px-2 py-1 rounded text-sm ${
+                      user.status === "Active"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-red-100 text-red-700"
+                    }`}
+                  >
+                    {user.status}
+                  </span>
+                </td>
+
+                <td className="p-4 flex gap-3">
+                  <button>
+                    <FaEdit />
+                  </button>
+
+                  <button className="text-red-500">
+                    <FaTrash />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+</DashboardLayout>
+  );
 }
