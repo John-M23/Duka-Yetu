@@ -19,7 +19,9 @@ import Security from "../pages/Settings/Security";
 import Taxes from "../pages/Settings/Taxes";
 import Subscription from "../pages/Settings/Subscription";
 import Business from "../pages/Settings/Business";
-
+import CashPayment from "../components/CashPayment";
+import MpesaPayment from "../components/MpesaPayment";
+// import CardPayment from "../pages/CardPayment";
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -42,6 +44,9 @@ export default function AppRoutes() {
         <Route path="/taxes" element={<Taxes />} />
         <Route path="/subscription" element={<Subscription />} />
         <Route path ="/Business" element={<Business />} />
+        <Route path="/cash-payment" element={<CashPayment />} />
+<Route path="/mpesa-payment" element={<MpesaPayment />} />
+{/* <Route path="/card-payment" element={<CardPayment />} /> */}
       </Routes>
     </BrowserRouter>
   );

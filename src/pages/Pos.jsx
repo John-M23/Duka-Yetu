@@ -2,8 +2,12 @@ import { useState } from "react";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import { products } from "../data/productData";
 import ProductCard from "../components/ProductCard";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Pos() {
+  const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("cash");
@@ -73,17 +77,29 @@ export default function Pos() {
   );
 
   // Checkout
-  const checkout = () => {
-    const receiptNumber = `INV-${Date.now()}`;
+  const handleCheckout = () => {
+    if (cart.length === 0) {
+      alert("Cart is empty");
+      return;
+    }
+    const checkoutData = {
+       cart,
+    total,
+    };
+    if (paymentMethod === "cash") {
+      navigate("/cash-payment", { state: checkoutData });
 
-    alert(
-      `Receipt: ${receiptNumber}
-Payment Method: ${paymentMethod}
-Total: Ksh ${total}`
-    );
 
-    setCart([]);
+    } 
+    else if (paymentMethod === "mpesa") {
+      navigate("/mpesa-payment", { state: checkoutData });
+    }
+    else if (paymentMethod === "card") {
+      alert(" Card Payment is coming soon... ");
+    }
+
   };
+
 
   return (
     <DashboardLayout>
@@ -234,7 +250,7 @@ Total: Ksh ${total}`
   </select>
 
   <button
-    onClick={checkout}
+    onClick={handleCheckout}
     className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded"
   >
     Checkout
