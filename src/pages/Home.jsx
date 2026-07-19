@@ -18,11 +18,6 @@ export default function Home() {
     {/* LEFT SIDE */}
     <div className="flex-1 text-center lg:text-left">
 
-      {/* Badge */}
-      <span className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm font-semibold text-green-700 bg-green-100 rounded-full">
-        🇰🇪 Proudly Built in Kenya
-      </span>
-
       {/* Heading */}
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
         Sell Faster.
